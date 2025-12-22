@@ -1,0 +1,22 @@
+name: darc_example
+
+description: Comprehensive console example app for the darc HTTP handler package.
+
+publish_to: "none"
+
+version: 0.0.1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  darc:
+    path: ../
+
+  dio: ^5.9.0
+  fresh_dio: ^0.4.4
+  fpdart: ^1.2.0
+  path: ^1.9.1
+
+dev_dependencies:
+  lints: ^5.1.1
