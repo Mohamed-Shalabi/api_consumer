@@ -1,10 +1,14 @@
 name: darc
-description: "A new Flutter package project."
-version: 0.0.1
-homepage:
+description: "DARC provides a minimal yet powerful public HTTP Requests interface while internalizing all the complexity"
+version: 0.0.4
+
+homepage: https://github.com/Mohamed-Shalabi/darc
+repository: https://github.com/Mohamed-Shalabi/darc
+issue_tracker: https://github.com/Mohamed-Shalabi/darc/issues
+
 
 environment:
-  sdk: ^3.9.2
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   dio: ^5.9.0
