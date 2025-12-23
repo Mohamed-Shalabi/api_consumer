@@ -1,5 +1,11 @@
 # darc
 
+[![Build Status](https://github.com/Mohamed-Shalabi/darc/actions/workflows/main.yml/badge.svg)](https://github.com/Mohamed-Shalabi/darc/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/Mohamed-Shalabi/darc/graph/badge.svg?token=CODECOV_TOKEN)](https://codecov.io/gh/Mohamed-Shalabi/darc)
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C2E.svg)](https://pub.dev/packages/very_good_analysis)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Dart SDK](https://img.shields.io/badge/Dart-3.0%2B-0175C2.svg?logo=dart&logoColor=white)](https://dart.dev)
+
 **DARC** (**D**etails-**A**gnostic **R**EST **C**onsumer) is a clean, opinionated networking abstraction for Flutter applications. It provides a minimal yet powerful public interface while internalizing the complexity of error handling, **callback-based response parsing**, token refresh, file downloads, and multipart uploads. It is designed for teams who want to separate HTTP transport concerns from business logic without sacrificing testability or control.
 
 ---
