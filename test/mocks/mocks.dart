@@ -41,7 +41,7 @@ class MockDioCancelToken extends Mock implements CancelToken {}
 
 class FakeTokenStorage extends Fake implements TokenStorage<ApiOAuth2Token> {
   FakeTokenStorage({Map<String, String>? initialData})
-    : _storage = initialData ?? {};
+      : _storage = initialData ?? {};
 
   static const accessTokenKey = 'access-token';
   static const refreshTokenKey = 'refresh-token';
@@ -334,8 +334,8 @@ void stubDownloadSuccess(MockDio mockDio) {
   ).thenAnswer((invocation) async {
     // Get the onReceiveProgress callback and invoke it
     final onReceiveProgress =
-        invocation.namedArguments[const Symbol('onReceiveProgress')]
-            as void Function(int, int)?;
+        invocation.namedArguments[const Symbol('onReceiveProgress')] as void
+            Function(int, int)?;
     if (onReceiveProgress != null) {
       onReceiveProgress(50, 100);
       onReceiveProgress(100, 100);
@@ -359,8 +359,8 @@ void stubDownloadCancelled(MockDio mockDio) {
   ).thenAnswer((invocation) async {
     // Get the onReceiveProgress callback and invoke it
     final onReceiveProgress =
-        invocation.namedArguments[const Symbol('onReceiveProgress')]
-            as void Function(int, int);
+        invocation.namedArguments[const Symbol('onReceiveProgress')] as void
+            Function(int, int);
     final cancelToken =
         invocation.namedArguments[const Symbol('cancelToken')] as CancelToken;
 

@@ -136,7 +136,8 @@ void main() {
       expect(exception.data, equals('parsed-value'));
     });
 
-    test('UnProcessableDataException ignores errorParser when '
+    test(
+        'UnProcessableDataException ignores errorParser when '
         'body is not Map<String, dynamic>', () {
       final exception = UnProcessableDataException<String>(
         responseBody: {1: 'parsed-value'} as Map<dynamic, dynamic>,

@@ -25,9 +25,9 @@ class DioConsumer implements ApiConsumer<DioDownloadCanceller> {
     required this.tokenInterceptor,
     required String baseUrl,
     MultipartFileFactory? fileFactory,
-  }) : _isInitializedCompleter = Completer<bool>(),
-       _hasToken = false,
-       _fileFactory = fileFactory ?? DefaultMultipartFileFactory() {
+  })  : _isInitializedCompleter = Completer<bool>(),
+        _hasToken = false,
+        _fileFactory = fileFactory ?? DefaultMultipartFileFactory() {
     isInitialized = _isInitializedCompleter.future;
     _prepareClient(baseUrl);
 
@@ -84,51 +84,48 @@ class DioConsumer implements ApiConsumer<DioDownloadCanceller> {
           StreamController<Either<RequestException<E>, double>>.broadcast();
 
       unawaited(
-        client
-            .download(
-              url,
-              filePath,
-              cancelToken: canceller?.cancelToken,
-              onReceiveProgress: (count, total) {
-                final double progress;
-                if (total <= 0) {
-                  progress = 0;
-                } else {
-                  progress = (count / total).clamp(0, 1).toDouble();
-                }
+        client.download(
+          url,
+          filePath,
+          cancelToken: canceller?.cancelToken,
+          onReceiveProgress: (count, total) {
+            final double progress;
+            if (total <= 0) {
+              progress = 0;
+            } else {
+              progress = (count / total).clamp(0, 1).toDouble();
+            }
 
-                streamController.add(
-                  right<RequestException<E>, double>(progress),
-                );
-              },
-            )
-            .then((_) {
-              if (!streamController.isClosed) {
-                unawaited(streamController.close());
-              }
-            })
-            .catchError((Object e, StackTrace s) {
-              if (e is! RequestException) {
-                ApiErrorReporter.reportError(e, s);
-              }
+            streamController.add(
+              right<RequestException<E>, double>(progress),
+            );
+          },
+        ).then((_) {
+          if (!streamController.isClosed) {
+            unawaited(streamController.close());
+          }
+        }).catchError((Object e, StackTrace s) {
+          if (e is! RequestException) {
+            ApiErrorReporter.reportError(e, s);
+          }
 
-              final exception = switch (e) {
-                RequestException<E>() => e,
-                DioException() => handleDioError<E>(
-                  e,
-                  errorParser: errorParser,
-                ),
-                _ => RequestUnknownException<E>(),
-              };
+          final exception = switch (e) {
+            RequestException<E>() => e,
+            DioException() => handleDioError<E>(
+                e,
+                errorParser: errorParser,
+              ),
+            _ => RequestUnknownException<E>(),
+          };
 
-              streamController.add(
-                left<RequestException<E>, double>(exception),
-              );
+          streamController.add(
+            left<RequestException<E>, double>(exception),
+          );
 
-              if (!streamController.isClosed) {
-                unawaited(streamController.close());
-              }
-            }),
+          if (!streamController.isClosed) {
+            unawaited(streamController.close());
+          }
+        }),
       );
 
       return right(streamController.stream);
@@ -192,7 +189,7 @@ class DioConsumer implements ApiConsumer<DioDownloadCanceller> {
 
       if (files != null && files.isNotEmpty) {
         final filesMap =
-            <String, dynamic /* MultipartFile or List<MultipartFile> */>{};
+            <String, dynamic /* MultipartFile or List<MultipartFile> */ >{};
 
         for (final file in files) {
           final multipartFile = await _fileFactory.create(
@@ -261,7 +258,7 @@ class DioConsumer implements ApiConsumer<DioDownloadCanceller> {
 
       if (files != null && files.isNotEmpty) {
         final filesMap =
-            <String, dynamic /* MultipartFile or List<MultipartFile> */>{};
+            <String, dynamic /* MultipartFile or List<MultipartFile> */ >{};
 
         for (final file in files) {
           final multipartFile = await _fileFactory.create(

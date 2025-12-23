@@ -409,7 +409,8 @@ void main() {
       },
     );
 
-    test('PUT with files uses FormData for body and uses MultipartFile factory '
+    test(
+        'PUT with files uses FormData for body and uses MultipartFile factory '
         'to create MultipartFiles', () async {
       stubPutSuccess(mockDio, {'success': true});
 
@@ -765,7 +766,8 @@ void main() {
       ).called(1);
     });
 
-    test('download cancelled mid-flight returns Left with '
+    test(
+        'download cancelled mid-flight returns Left with '
         'CancelledRequestException', () async {
       // Stub download to simulate partial progress then cancellation
       when(
@@ -777,8 +779,8 @@ void main() {
         ),
       ).thenAnswer((invocation) async {
         final onReceiveProgress =
-            invocation.namedArguments[const Symbol('onReceiveProgress')]
-                as void Function(int, int);
+            invocation.namedArguments[const Symbol('onReceiveProgress')] as void
+                Function(int, int);
         // Simulate 25% progress before cancellation
         onReceiveProgress(25, 100);
 

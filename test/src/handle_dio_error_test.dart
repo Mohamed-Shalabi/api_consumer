@@ -87,7 +87,8 @@ void main() {
       },
     );
 
-    test('badResponse with StatusCodes.unauthenticated '
+    test(
+        'badResponse with StatusCodes.unauthenticated '
         'returns UnauthenticatedException', () async {
       final exception = createConnectionException(
         DioExceptionType.badResponse,
@@ -193,7 +194,8 @@ void main() {
       },
     );
 
-    test('badResponse with StatusCodes.unprocessableData '
+    test(
+        'badResponse with StatusCodes.unprocessableData '
         'returns UnProcessableDataException', () async {
       final exception = createConnectionException(
         DioExceptionType.badResponse,
@@ -231,7 +233,8 @@ void main() {
       },
     );
 
-    test('badResponse with StatusCodes.serverError '
+    test(
+        'badResponse with StatusCodes.serverError '
         'returns InternalServerErrorException', () async {
       final exception = createConnectionException(
         DioExceptionType.badResponse,

@@ -329,7 +329,8 @@ void main() {
   // ===========================================================================
 
   group('Refresh Token Scenarios', () {
-    test('refresh token callback receives current token and can update both '
+    test(
+        'refresh token callback receives current token and can update both '
         'tokens', () async {
       var receivedToken = const ApiOAuth2Token(accessToken: '');
 

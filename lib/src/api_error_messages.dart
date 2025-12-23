@@ -11,15 +11,15 @@ final class ApiErrorMessages {
   });
 
   ApiErrorMessages.defaults()
-    : this(
-        connectionError: () => 'Connection error',
-        downloadCanceled: () => 'Download canceled',
-        unknownError: () => 'Unknown error',
-        pleaseLogin: () => 'Please login',
-        wrongData: () => 'Wrong data',
-        serverError: () => 'Server error',
-        unauthorized: () => 'Unauthorized',
-      );
+      : this(
+          connectionError: () => 'Connection error',
+          downloadCanceled: () => 'Download canceled',
+          unknownError: () => 'Unknown error',
+          pleaseLogin: () => 'Please login',
+          wrongData: () => 'Wrong data',
+          serverError: () => 'Server error',
+          unauthorized: () => 'Unauthorized',
+        );
 
   final String Function() connectionError;
   final String Function() downloadCanceled;

@@ -6,7 +6,7 @@ class MultiPartFileModel {
   ///
   /// The [fileName] is automatically derived from [filePath].
   MultiPartFileModel({required this.requestBodyName, required this.filePath})
-    : fileName = path.basename(filePath);
+      : fileName = path.basename(filePath);
 
   /// The form field name that should contain this file.
   final String requestBodyName;
