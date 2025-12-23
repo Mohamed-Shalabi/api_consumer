@@ -71,7 +71,6 @@ Add `darc` to your `pubspec.yaml`:
 ```yaml
 dependencies:
   darc: <Version>
-  dio: <Version>
   fresh_dio: <Version> # Optional, for using the default token storage that is below
   flutter_secure_storage: <Version> # Optional, for using the default token storage that is below
 ```
